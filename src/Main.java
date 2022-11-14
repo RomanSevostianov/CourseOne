@@ -9,7 +9,7 @@ public class Main {
 
         for (Employee employee : emp) {
           float persent;
-          persent = ((100f/index)*employee.getSalary());
+          persent = ((index/100f)*employee.getSalary());
             employee.setSalary(  (int) (employee.getSalary()+persent) );
 
         }
