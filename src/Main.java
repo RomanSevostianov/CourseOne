@@ -3,7 +3,21 @@ import java.util.Scanner;
 
 public class Main {
     public static Employee[] emp = new Employee[10];
+//----------------------------medium----------------------
 
+    public static void indexSalary(int index) {
+
+        for (Employee employee : emp) {
+          float persent;
+          persent = ((100f/index)*employee.getSalary());
+            employee.setSalary(  (int) (employee.getSalary()+persent) );
+
+        }
+
+    }
+
+
+    //-----------------------------------------------
     public static int calcSalary() {
 
         int sum = 0;
@@ -12,6 +26,7 @@ public class Main {
         }
         return sum;
     }
+
     public static int findingMin() {
         int min = emp[0].getSalary();
         for (int i = 0; i < emp.length; i++) {
@@ -21,6 +36,7 @@ public class Main {
         }
         return min;
     }
+
     public static int findingMax() {
         int max = emp[0].getSalary();
         for (int i = 0; i < emp.length; i++) {
@@ -30,11 +46,13 @@ public class Main {
         }
         return max;
     }
+
     public static double mean() {
         double meaning;
         meaning = calcSalary() / emp.length;
         return meaning;
     }
+
     public static void main(String[] args) {
         emp[0] = new Employee(3, "Petrov ", "Sergey", "Romanovich", 30002);
         emp[1] = new Employee(4, "Ivanov ", "Boris", "Nikolaevich", 36000);
@@ -57,24 +75,33 @@ public class Main {
         System.out.println("2 - Сотрудник с минимальной зарплатой");
         System.out.println("3 - Сотрудник с максимальной зарплатой");
         System.out.println("4 - Среднее значение зарплат");
+
+        System.out.println("---------Medium------------");
+        System.out.println("5 - Проиндексировать");
         System.out.println(" ");
 
         Scanner in = new Scanner(System.in);
         int enterMenu = in.nextInt();
 
-        switch(enterMenu){
+        switch (enterMenu) {
             case 1:
-            System.out.println("Общая сумма затрат =  "+calcSalary());
-            break;
+                System.out.println("Общая сумма затрат =  " + calcSalary());
+                break;
             case 2:
-                System.out.println("Сотрудник с минимальной зарплатой = "+findingMin());
+                System.out.println("Сотрудник с минимальной зарплатой = " + findingMin());
                 break;
             case 3:
-                System.out.println("Сотрудник с максимальной зарплатой = "+findingMax());
+                System.out.println("Сотрудник с максимальной зарплатой = " + findingMax());
                 break;
             case 4:
-                System.out.println("Среднее значение зарплат = "+ mean());
+                System.out.println("Среднее значение зарплат = " + mean());
                 break;
+            case 5:
+                System.out.println("Индексация зарплаты ");
+                indexSalary(10);
+                for (int i = 0; i < emp.length; i++) {
+                    System.out.println(emp[i]);
+                }
         }
     }
 }

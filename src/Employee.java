@@ -1,6 +1,7 @@
 public class Employee {
 
-    private static int id=1;
+    private static int couter=0;
+    private  int id;
     private int department;
     private String surname;
     private String name;
@@ -14,6 +15,7 @@ public class Employee {
         this.name = name;
         this.patronymic = patronymic;
         this.salary = salary;
+        this.id=couter++;
     }
 
     public int getDepartment() {
@@ -36,9 +38,12 @@ public class Employee {
         return this.salary;
     }
 
+    public void setSalary (int salary){
+        this.salary=salary;
+    }
     @Override
     public String toString() {
-        return id++ + "       " +department+"      "+ surname + "        " + name + "       " + patronymic+"      "+salary;
+        return id + "       " + department + "      " + surname + "        " + name + "       " + patronymic + "      " + salary;
     }
 
 }
